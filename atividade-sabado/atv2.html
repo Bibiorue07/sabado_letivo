@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Produtos</title>
+</head>
+<body>
+    <h1>Catálogo de Produtos</h1>
+    <ul id="lista-produtos"></ul>
+
+    <script>
+        let listaProdutos = [
+            {nome: "Notebook", categoria: "Eletrônicos", preco: 1500.00},
+            {nome: "Camiseta", categoria: "Vestuário", preco: 20.00}
+        ];
+
+        function atualizarLista() {
+            let listaElemento = document.getElementById("lista-produtos");
+            listaElemento.innerHTML = "";
+            listaProdutos.forEach(produto => {
+                let li = document.createElement("li");
+                li.textContent = `Nome: ${produto.nome}, Categoria: ${produto.categoria}, Preço: R$ ${produto.preco}`;
+                listaElemento.appendChild(li);
+            });
+        }
+        
+        atualizarLista();
+    </script>
+</body>
+</html>

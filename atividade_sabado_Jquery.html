@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3 Exemplos em jQuery</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <!-- Exemplo 1: Manipulação de Listas -->
+    <button id="adicionarItem">Adicionar Item</button>
+    <ul id="listaItens">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+
+    <!-- Exemplo 2: Alterando o Texto de um Elemento -->
+    <button id="alterarTexto">Alterar Texto</button>
+    <p id="textoParaAlterar">Texto a ser alterado.</p>
+
+
+    <!-- Exemplo 3: Animação Básica -->
+    <button id="animarElemento">Animar Elemento</button>
+    <div id="elementoAnimado" style="width: 100px; height: 100px; background-color: #3498db;"></div>
+
+    <script>
+        // Exemplo 1: Manipulação de Listas
+        $("#adicionarItem").click(function(){
+            $("#listaItens").append("<li>Novo Item</li>");
+        });
+
+       // Exemplo 2: Alterando o Texto de um Elemento
+       $("#alterarTexto").click(function(){
+            $("#textoParaAlterar").text("Novo texto alterado!");
+        });
+
+
+        // Exemplo 3: Animação Básica
+        $("#animarElemento").click(function(){
+            $("#elementoAnimado").animate({width: "200px", height: "200px", opacity: 0.5}, 1000);
+        });
+    </script>
+</body>
+</html>

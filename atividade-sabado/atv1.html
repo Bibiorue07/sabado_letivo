@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tarefas</title>
+</head>
+<body>
+    <h1>Lista de Tarefas</h1>
+    <ul id="lista-tarefas"></ul>
+    <input type="text" id="nova-tarefa" placeholder="Adicione uma nova tarefa">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+
+    <script>
+        let listaTarefas = [];
+
+        function adicionarTarefa() {
+            let novaTarefa = document.getElementById("nova-tarefa").value;
+            listaTarefas.push({descricao: novaTarefa, concluida: false});
+            atualizarLista();
+            document.getElementById("nova-tarefa").value = "";
+        }
+
+        function concluirTarefa(index) {
+            listaTarefas[index].concluida = true;
+            atualizarLista();
+        }
+
+        function atualizarLista() {
+            let listaElemento = document.getElementById("lista-tarefas");
+            listaElemento.innerHTML = "";
+            listaTarefas.forEach((tarefa, index) => {
+                let li = document.createElement("li");
+                li.textContent = tarefa.descricao;
+                if (tarefa.concluida) {
+                    li.style.textDecoration = "line-through";
+                }
+                let btnConcluir = document.createElement("button");
+                btnConcluir.textContent = "Concluir";
+                btnConcluir.onclick = () => concluirTarefa(index);
+                li.appendChild(btnConcluir);
+                listaElemento.appendChild(li);
+            });
+        }
+    </script>
+</body>
+</html>
